@@ -10,7 +10,7 @@ using eStudent.Data;
 namespace eStudent.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220403112503_initial")]
+    [Migration("20220403121809_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -221,7 +221,7 @@ namespace eStudent.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("eStudent.Models.Departments", b =>
+            modelBuilder.Entity("eStudent.Models.DepartamentViewModel", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -236,7 +236,7 @@ namespace eStudent.Data.Migrations
                     b.ToTable("tbl_Departments");
                 });
 
-            modelBuilder.Entity("eStudent.Models.Student", b =>
+            modelBuilder.Entity("eStudent.Models.StudentViewModel", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -253,15 +253,15 @@ namespace eStudent.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Fname")
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mobile")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

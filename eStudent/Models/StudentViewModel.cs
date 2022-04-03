@@ -9,10 +9,10 @@ namespace eStudent.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Required*")]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        public string Fname { get; set; }
+        public string LastName { get; set; }
 
         [Required(ErrorMessage = "Required")]
         [DataType(DataType.EmailAddress)]

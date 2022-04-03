@@ -14,10 +14,10 @@
         <tr>
             <th>Actions</th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fname)
+                @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -41,16 +41,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.ActionLink("Edit", "Create", new {  item.ID, item.Name, item.Fname, item.Email, item.Mobile, item.Description, item.DepID } , new { @class="btn btn-success"}) |
+                @Html.ActionLink("Edit", "Create", new {  item.ID, item.FirstName, item.LastName, item.Email, item.Mobile, item.Description, item.DepID } , new { @class="btn btn-success"}) |
                 @Html.ActionLink("Delete", "DeleteStd", new {  item.ID  }, new { @class = "btn btn-danger",onclick="return confirm('Do you really want this record?')" })
             </td>
 
 
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Fname)
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)

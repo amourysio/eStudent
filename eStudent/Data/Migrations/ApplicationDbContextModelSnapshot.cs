@@ -219,7 +219,7 @@ namespace eStudent.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("eStudent.Models.Departments", b =>
+            modelBuilder.Entity("eStudent.Models.DepartamentViewModel", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -234,7 +234,7 @@ namespace eStudent.Data.Migrations
                     b.ToTable("tbl_Departments");
                 });
 
-            modelBuilder.Entity("eStudent.Models.Student", b =>
+            modelBuilder.Entity("eStudent.Models.StudentViewModel", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -251,15 +251,15 @@ namespace eStudent.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Fname")
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mobile")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -25,8 +25,8 @@ namespace eStudent.Data.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    Fname = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     DepID = table.Column<int>(nullable: false),
                     Mobile = table.Column<string>(nullable: false),

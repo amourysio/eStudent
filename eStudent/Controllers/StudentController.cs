@@ -32,8 +32,8 @@ namespace eStudent.Controllers
                               select new StudentViewModel
                               {
                                   ID = a.ID,
-                                  Name = a.Name,
-                                  Fname = a.Fname,
+                                  FirstName = a.FirstName,
+                                  LastName = a.LastName,
                                   Mobile = a.Mobile,
                                   Email = a.Email,
                                   Description = a.Description,
