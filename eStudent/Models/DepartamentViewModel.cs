@@ -2,7 +2,7 @@
 
 namespace eStudent.Models
 {
-    public class Departments
+    public class DepartamentViewModel
     {
         [Key]
         public int ID { get; set; }

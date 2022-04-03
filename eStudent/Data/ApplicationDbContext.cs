@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using eStudent.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,7 @@ namespace eStudent.Data
             : base(options)
         {
         }
+        public DbSet<StudentViewModel> tbl_Student { get; set; }
+        public DbSet<DepartamentViewModel> tbl_Departments { get; set; }
     }
 }

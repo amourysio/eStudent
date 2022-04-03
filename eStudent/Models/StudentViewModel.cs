@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eStudent.Models
 {
-    public class Student
+    public class StudentViewModel
     {
         [Key]
         public int ID { get; set; }

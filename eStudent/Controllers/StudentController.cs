@@ -1,4 +1,5 @@
-﻿using eStudent.Models;
+﻿using eStudent.Data;
+using eStudent.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,25 +11,25 @@ namespace eStudent.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly StudentContext _Db;
-        public StudentController(StudentContext Db)
+        private readonly ApplicationDbContext db;
+        public StudentController(ApplicationDbContext Db)
         {
-            _Db = Db;
+            db = Db;
         }
 
         public IActionResult StudentList()
         {
             try
             {
-                //var stdList = _Db.tbl_Student.ToList();
+                //var stdList = db.tbl_Student.ToList();
 
-                var stdList = from a in _Db.tbl_Student
-                              join b in _Db.tbl_Departments
+                var stdList = from a in db.tbl_Student
+                              join b in db.tbl_Departments
                               on a.DepID equals b.ID
                               into Dep
                               from b in Dep.DefaultIfEmpty()
 
-                              select new Student
+                              select new StudentViewModel
                               {
                                   ID = a.ID,
                                   Name = a.Name,
@@ -44,8 +45,9 @@ namespace eStudent.Controllers
 
                 return View(stdList);
             }
-            catch (Exception ex)
+            catch
             {
+                
                 return View();
 
             }
@@ -56,14 +58,14 @@ namespace eStudent.Controllers
 
 
 
-        public IActionResult Create(Student obj)
+        public IActionResult Create(StudentViewModel obj)
         {
             loadDDL();
             return View(obj);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddStudent(Student obj)
+        public async Task<IActionResult> AddStudent(StudentViewModel obj)
         {
             try
             {
@@ -71,13 +73,13 @@ namespace eStudent.Controllers
                 {
                     if (obj.ID == 0)
                     {
-                        _Db.tbl_Student.Add(obj);
-                        await _Db.SaveChangesAsync();
+                        db.tbl_Student.Add(obj);
+                        await db.SaveChangesAsync();
                     }
                     else
                     {
-                        _Db.Entry(obj).State = EntityState.Modified;
-                        await _Db.SaveChangesAsync();
+                        db.Entry(obj).State = EntityState.Modified;
+                        await db.SaveChangesAsync();
                     }
 
                     return RedirectToAction("StudentList");
@@ -85,7 +87,7 @@ namespace eStudent.Controllers
 
                 return View(obj);
             }
-            catch (Exception ex)
+            catch
             {
 
                 return RedirectToAction("StudentList");
@@ -98,16 +100,16 @@ namespace eStudent.Controllers
         {
             try
             {
-                var std = await _Db.tbl_Student.FindAsync(id);
+                var std = await db.tbl_Student.FindAsync(id);
                 if (std != null)
                 {
-                    _Db.tbl_Student.Remove(std);
-                    await _Db.SaveChangesAsync();
+                    db.tbl_Student.Remove(std);
+                    await db.SaveChangesAsync();
                 }
 
                 return RedirectToAction("StudentList");
             }
-            catch (Exception ex)
+            catch
             {
 
                 return RedirectToAction("StudentList");
@@ -120,15 +122,15 @@ namespace eStudent.Controllers
         {
             try
             {
-                List<Departments> depList = new List<Departments>();
-                depList = _Db.tbl_Departments.ToList();
+                List<DepartamentViewModel> depList = new List<DepartamentViewModel>();
+                depList = db.tbl_Departments.ToList();
 
-                depList.Insert(0, new Departments { ID = 0, Department = "Please Select" });
+                depList.Insert(0, new DepartamentViewModel { ID = 0, Department = "Please Select" });
 
                 ViewBag.DepList = depList;
 
             }
-            catch (Exception ex)
+            catch
             {
 
 
