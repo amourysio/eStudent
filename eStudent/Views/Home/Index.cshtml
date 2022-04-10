@@ -1,8 +1,39 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<h1 class="text-center">Three Skills Students Need for Their Future!</h1>
+<section id="home" class="home-table box-shadow ">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="card-group text-secondary ">
+        <div class="card">
+            <div class="img-zoom">
+                <img src="~/css/Image/Criticalthinking2.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><strong>Critical thinking and problem-solving</strong></h5>
+                <p class="card-text ">Problem solving and critical thinking refers to the ability to use knowledge, facts, and data to effectively solve problems. This doesn't mean you need to have an immediate answer, it means you have to be able to think on your feet, assess problems and find solutions.</p>
+                <a asp-area="" asp-controller="Home" asp-action="Contact">Contact Education Department</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-zoom">
+                <img src="~/css/Image/Agilityadaptability2.jpg" class="card-img-top" alt="" />
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><strong>Agility and adaptability</strong></h5>
+                <p class="card-text">To secure a job offer and succeed in a career, one must be flexible in terms of jobs and locations. Good opportunities are often presented to those who are willing to move from one city to another and/or from one functional or operational area to another. Being adaptable helps develop a person's managerial and leadership skills.</p>
+                <a asp-area="" asp-controller="Home" asp-action="Contact">Contact Education Department</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="img-zoom">
+                <img src="~/css/Image/Information.jpg" class="card-img-top" alt="">
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title"><strong>Accessing and analyzing information</strong></h5>
+                <p class="card-text">Accessing and analyzing information is the ability to know when there is a need form information and how to identify, locate, evaluate and effectively use that information for solving problems. In the 21st Century classroom, students find, navigate through and evaluate large amounts of information.</p>
+                <a asp-area="" asp-controller="Home" asp-action="Contact">Contact Education Department</a>
+            </div>
+        </div>
+    </div>
+</section>
