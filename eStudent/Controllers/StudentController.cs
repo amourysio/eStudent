@@ -52,11 +52,7 @@ namespace eStudent.Controllers
 
             }
 
-
-
         }
-
-
 
         public IActionResult Create(StudentViewModel obj)
         {
