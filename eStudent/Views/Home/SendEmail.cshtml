@@ -1,7 +1,7 @@
 ﻿@{ ViewBag.Title = "SendEmail";}
 
 
-<h2>SendEmail</h2>
+<h2 class="h2 text-secondary">Contact with us about all your question!</h2>
 <br />
 <br />
 @if (ViewBag.Error != null)
@@ -9,7 +9,7 @@
     <h2>@ViewBag.Error</h2>
 }
 <form method="post" action="SendEmail">
-    <div class="container">
+    <div class="container text-secondary">
         <span class="form-control-static">Receiver:</span>
         <input class="form-control" type="text" name="receiver" /><br />
         <span class="form-control-static">Subject:</span>
